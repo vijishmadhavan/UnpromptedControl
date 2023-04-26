@@ -1,3 +1,5 @@
+#best object removal model
+
 import gradio as gr
 import numpy as np
 import torch
@@ -22,84 +24,22 @@ pipe.scheduler = DEISMultistepScheduler.from_config(pipe.scheduler.config)
 #pipe.enable_xformers_memory_efficient_attention()
 pipe.to('cuda')
 
-
-
-def predict2(input_dict, mask_dict, prompt):
-    # Get the drawn input image and mask
-    input_image = input_dict["image"].convert("RGB")
-    mask1 = input_dict["mask"].convert("RGB")
-
-    mask = mask_dict["mask"].convert("RGB")
-
-    # Process the input image and mask
-    input_image = np.array(input_image)
-    low_threshold = 500
-    high_threshold = 600
-    canny = cv2.Canny(input_image, low_threshold, high_threshold)
-    canny = canny[:, :, None]
-    canny = np.concatenate([canny, canny, canny], axis=2)
-    canny_image = Image.fromarray(canny)
-    generator = torch.manual_seed(0)
-    output = pipe(
-        prompt,
-        num_inference_steps=20,
-        generator=generator,
-        image=input_image,
-        control_image=canny_image,
-        controlnet_conditioning_scale=0.5,
-        mask_image=mask
-    ).images[0]
-    return output
-def predict3(input_dict, prompt):
-    # Get the drawn input image and mask
-    image = input_dict["image"].convert("RGB")
-    input_image = input_dict["mask"].convert("RGB")
-    #mask = mask_dict["mask"].convert("RGB")
-
-
-    # Convert images to numpy arrays
-    image_np = np.array(image)
-    input_image_np = np.array(input_image)
-
-    # Convert input_image_np to grayscale and normalize to [0, 1] range
-    mask_np = cv2.cvtColor(input_image_np, cv2.COLOR_RGB2GRAY) / 255.0
-
-    # Blend the original image and the input_image using the mask
-    blended_image_np = image_np * (1 - mask_np)[:, :, None] + input_image_np * mask_np[:, :, None]
-
-    # Convert the blended image back to a PIL Image
-    blended_image = Image.fromarray(np.uint8(blended_image_np))
-
-    # Process the blended image
-    blended_image_np = np.array(blended_image)
-    low_threshold = 2000
-    high_threshold = 2100
-    canny = cv2.Canny(blended_image_np, low_threshold, high_threshold)
-    canny = canny[:, :, None]
-    canny = np.concatenate([canny, canny, canny], axis=2)
-    canny_image = Image.fromarray(canny)
-    #save canny image
-    canny_image.save("canny.png")
-
-    generator = torch.manual_seed(0)
-    output = pipe(
-        prompt,
-        negative_prompt="person,animals,birds,pets, text, objects, vehicles, any object",
-        num_inference_steps=20,
-        generator=generator,
-        image=blended_image_np,
-        control_image=canny_image,
-        controlnet_conditioning_scale=0.6,
-        mask_image=input_image
-    ).images[0]
-    
-    return output
-
-
+def resize_image(image, target_size):
+    width, height = image.size
+    aspect_ratio = float(width) / float(height)
+    if width > height:
+        new_width = target_size
+        new_height = int(target_size / aspect_ratio)
+    else:
+        new_width = int(target_size * aspect_ratio)
+        new_height = target_size
+    return image.resize((new_width, new_height), Image.BICUBIC)
 def predict(input_dict):
     # Get the drawn input image and mask
     image = input_dict["image"].convert("RGB")
     input_image = input_dict["mask"].convert("RGB")
+    input_image = resize_image(input_image, 768)
+    image = resize_image(image, 768)
 
     # Convert images to numpy arrays
     image_np = np.array(image)
