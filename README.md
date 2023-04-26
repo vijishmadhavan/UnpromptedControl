@@ -10,3 +10,8 @@ In this image restoration is accomplished using the controlnet-canny and stable-
 
 ![restore Result](examples/eg2.jpg)
 
+![restore Result](examples/eg2gif.gif)
+
+
+
+
