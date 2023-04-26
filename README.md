@@ -1,2 +1,2 @@
 # UnpromptedControl
-Remove unwanted objects and restore images without prompts, powered by ControlNet.
+ControlNet is a highly regarded tool for guiding StableDiffusion models, and it has been widely acknowledged for its effectiveness. In this repository, I have discovered a technique that allows for the restoration or removal of objects without requiring user prompts. By leveraging this approach, the workflow can be significantly streamlined, leading to enhanced process efficiency.
