@@ -1,6 +1,7 @@
 # UnpromptedControl
 
 ControlNet is a highly regarded tool for guiding StableDiffusion models, and it has been widely acknowledged for its effectiveness. In this repository, I have discovered a technique that allows for the restoration or removal of objects without requiring user prompts. By leveraging this approach, the workflow can be significantly streamlined, leading to enhanced process efficiency.
+![restore Result](examples/eg2gif.gif)
 
 ## Image Restoration 
 
@@ -10,7 +11,6 @@ In this image restoration is accomplished using the controlnet-canny and stable-
 
 ![restore Result](examples/eg2.jpg)
 
-![restore Result](examples/eg2gif.gif)
 
 
 
