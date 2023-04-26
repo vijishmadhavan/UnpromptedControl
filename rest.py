@@ -118,7 +118,7 @@ with gr.Blocks() as demo:
 
     generate_mask_button.click(generate_scratch_mask, inputs=[input_image], outputs=[mask_image])
     submit.click(inpaint, inputs=[input_image, mask_image], outputs=[output_image])
-    demo.launch(debug=True)
+    demo.launch(share=True)
 
 
        
