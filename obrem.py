@@ -21,7 +21,7 @@ pipe.scheduler = DEISMultistepScheduler.from_config(pipe.scheduler.config)
 
 # speed up diffusion process with faster scheduler and memory optimization
 # remove following line if xformers is not installed
-#pipe.enable_xformers_memory_efficient_attention()
+pipe.enable_xformers_memory_efficient_attention()
 pipe.to('cuda')
 
 def resize_image(image, target_size):
