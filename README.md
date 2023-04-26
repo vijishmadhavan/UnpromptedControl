@@ -18,6 +18,10 @@ Automatically removing objects from images is a challenging task that requires a
 **For sure it has limitations and fails with some images(mostly faces), we need to mask the object as well as the shadow from the object to get good results.**
 
 
+![restore Result](examples/obj2.jpg)
+![restore Result](examples/obj1.jpg)
+
+
 
 
 
