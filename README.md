@@ -19,7 +19,7 @@ In this image restoration is accomplished using the controlnet-canny and stable-
 
 Automatically removing objects from images is a challenging task that requires a combination of computer vision and deep learning techniques. This code leverages the power of OpenCV inpainting, deep learning-based image restoration, and blending techniques to achieve this task automatically, without the need for user prompts. The ControlNetModel and StableDiffusionInpaintPipeline models play a crucial role in guiding the inpainting process and restoring the image to a more natural-looking state. Overall, this code provides an efficient and effective way to remove unwanted objects from images and produce natural-looking results that are consistent with the surrounding image content. 
 
-**For sure it has limitations and fails with some images(mostly faces), we need to mask the object as well as the shadow from the object to get good results.**
+**"Surely, it has its limitations and might fail with certain images, especially those of faces, and may require some back and forth. To obtain good results, we need to mask not only the object but also its shadow."**
 
 
 ![restore Result](examples/obj2.jpg)
