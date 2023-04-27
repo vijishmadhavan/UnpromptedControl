@@ -6,7 +6,7 @@
 
 ControlNet is a highly regarded tool for guiding StableDiffusion models, and it has been widely acknowledged for its effectiveness. In this repository, A simple hack that allows for the restoration or removal of objects without requiring user prompts. By leveraging this approach, the workflow can be significantly streamlined, leading to enhanced process efficiency.
 
-## Noprompt
+## No-prompt
 ![restore Result](examples/eg2gif.gif)
 ![restore Result](examples/objgif.gif)
 ## Image Restoration 
