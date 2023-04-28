@@ -30,7 +30,7 @@ Automatically removing objects from images is a challenging task that requires a
 ![restore Result](examples/obj2.jpg)
 ![restore Result](examples/obj1.jpg)
 
-#Limitation
+## Limitation
 
 - Limited Generalization: The algorithm currently has limitations when it comes to processing images of people's faces and bodies. It may not work as expected for these types of images, and additional work is needed to improve its performance in these areas.
 
@@ -38,7 +38,7 @@ Automatically removing objects from images is a challenging task that requires a
 
 - To obtain good results, we need to mask not only the object but also its shadow.
 
-# Acknowledgements
+## Acknowledgements
 
 https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life (Segmentation)
 
