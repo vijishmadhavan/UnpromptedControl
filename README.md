@@ -7,6 +7,9 @@
 ControlNet is a highly regarded tool for guiding StableDiffusion models, and it has been widely acknowledged for its effectiveness. In this repository, A simple hack that allows for the restoration or removal of objects without requiring user prompts. By leveraging this approach, the workflow can be significantly streamlined, leading to enhanced process efficiency.
 
 ## No-prompt
+
+[<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">](https://colab.research.google.com/github/vijishmadhavan/UnpromptedControl/blob/master/UnpromptedControl.ipynb)
+
 ![restore Result](examples/eg2gif.gif)
 ![restore Result](examples/objgif.gif)
 ## Image Restoration 
