@@ -30,7 +30,12 @@ Automatically removing objects from images is a challenging task that requires a
 ![restore Result](examples/obj2.jpg)
 ![restore Result](examples/obj1.jpg)
 
+# Acknowledgements
 
+https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life (Segmentation)
 
+https://huggingface.co/thibaud/controlnet-sd21
+
+https://github.com/lllyasviel/ControlNet
 
 
